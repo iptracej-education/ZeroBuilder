@@ -30,7 +30,7 @@ While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — Ze
 - DeepSeekCoder  
 - GPT-4o
 
----
+
 
 ## 🎯 Objective
 
@@ -63,12 +63,11 @@ While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — Ze
 
 | Target Area                      | Potential Goal |
 |----------------------------------|----------------|
-| Exploit synthesis                | Generate PoCs bypassing ASLR, stack canaries — using hybrid SMT + LLM guidance. |
-| Patch synthesis                  | Produce patch candidates validated by CI/CD regression testing. |
-| End-to-end pipeline automation   | Provide a 1-click install public repo with full test suite. |
-| Learning feedback loops          | Enable adaptive ML retraining from bug discovery drift. |
+| Exploit synthesis                | TBD - Generate PoCs bypassing ASLR, stack canaries — using hybrid SMT + LLM guidance. |
+| Patch synthesis                  | TBD - Produce patch candidates validated by CI/CD regression testing. |
+| End-to-end pipeline automation   | TBD - Provide a 1-click install public repo with full test suite. |
+| Learning feedback loops          | TBD - Enable adaptive ML retraining from bug discovery drift. |
 
----
 
 ## 🗺️ Project Roadmap
 
@@ -89,7 +88,7 @@ While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — Ze
 | 13. Continuous Learning | CVE ingestion | Month 24 |
 | Wrap-Up | Final test & open-source | Month 24 |
 
----
+
 
 ## 🗂️ Open-source Components
 
