@@ -1,6 +1,6 @@
-# 🛠️ ZeroBuilder: A Modern Deep Vulnerability Discovery Pipeline  
+# 🛠️ ZeroBuilder: A Modern Vulnerability Discovery Pipeline  
 **June 2025 – June 2027**  
-_Solo developer 40h/week project — LLM-assisted — goal to surpass DARPA CGC and Meta CaRE 2.0_
+_Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta CaRE 2.0_
 
 [![Project](https://img.shields.io/badge/Project-ZeroBuilder-blue)](https://github.com/iptracej-education/ZeroBuilder)
 
