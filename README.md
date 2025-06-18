@@ -31,13 +31,12 @@ While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — Ze
 - GPT-4o
 
 
-
 ## 🎯 Objective
 
 **ZeroBuilder** is a modern deep vulnerability discovery pipeline — designed to:
 
 - Push the boundaries of automated vulnerability discovery beyond legacy systems such as DARPA CGC winners (Mayhem, Mechanical Phish) and Meta CaRE 2.0  
-- Achieve full-spectrum vulnerability coverage — from guided fuzzing to concurrency bugs, SMT-based exploit synthesis, and collaborative review with human  
+- Achieve wider vulnerability coverage — from guided fuzzing to concurrency bugs, SMT-based exploit synthesis, and collaborative review with human  
 - Apply the latest advances in:
   - Graph-based neural modeling (GATs, TGNs)
   - Deep reinforcement learning (DRL)
@@ -48,8 +47,6 @@ While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — Ze
   - Chrome browser (libpng, libjpeg)
   - Complex protocols (SMB, HTTP/2)
 
-
-**Technical Supremacy Targets (June 2027):**
 
 ## 🎯 Key Technical Objectives
 
