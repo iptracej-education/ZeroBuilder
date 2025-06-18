@@ -2,8 +2,9 @@
 **June 2025 – June 2027**  
 _Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta CaRE 2.0_
 
-[![Project](https://img.shields.io/badge/Project-ZeroBuilder-blue)](https://github.com/iptracej-education/ZeroBuilder)
+While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — ZeroBuilder aims to demonstrate that, by leveraging modern LLM agents (Grok 3, DeepSeekCoder, GPT-4o), a **single developer with discipline and compute** can surpass many 2015–2020 level approaches.
 
+[![Project](https://img.shields.io/badge/Project-ZeroBuilder-blue)](https://github.com/iptracej-education/ZeroBuilder)
 
 ## 🚀 Project Overview
 
@@ -21,7 +22,7 @@ _Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta 
 **Target software**: Linux kernel, Chrome (libjpeg, libpng), SMB, HTTP
 
 **Compute**:  
-- Cheapest cloud services for A100 GPUs or a local server (32-core, 128GB RAM, 2x A100 GPUs) 
+- Cloud services for A100 GPUs or a local server (32-core, 128GB RAM, 2x A100 GPUs) 
 - AWS EKS 10 nodes (Steps 9, 12, 13)
 
 **LLM Agents**:  
@@ -31,7 +32,7 @@ _Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta 
 
 ---
 
-## 🎯 Objective & Project Ambitions
+## 🎯 Objective
 
 **ZeroBuilder** is a modern deep vulnerability discovery pipeline — designed to:
 
@@ -50,17 +51,22 @@ _Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta 
 
 **Technical Supremacy Targets (June 2027):**
 
-| Target Area                      | Goal |
-|----------------------------------|------|
-| Fuzzing coverage                 | Surpass OSS-Fuzz for SMB/HTTP stateful targets |
-| Kernel race condition discovery  | Detect previously unknown races in Linux kernel 6.x |
-| Exploit synthesis                | Generate reliable PoCs bypassing ASLR, stack canaries |
-| Patch synthesis                  | Generate functional, validated patches with CI/CD verification |
-| End-to-end pipeline automation   | Public GitHub repo with 1-click install and full test suite |
-| Learning feedback loops          | Achieve adaptive ML model retraining from bug discovery drift |
+## 🎯 Key Technical Objectives
 
-**Comparison Ambition:**  
-While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — ZeroBuilder aims to demonstrate that, by leveraging modern LLM agents (Grok 3, DeepSeekCoder, GPT-4o), a **single developer with discipline and compute** can surpass many 2015–2020 level approaches.
+| Target Area                      | Goal & Rationale |
+|----------------------------------|------------------|
+| **Fuzzing coverage (Primary Milestone)** | **Surpass OSS-Fuzz coverage for SMB/HTTP stateful targets** — OSS-Fuzz excels at stateless, single-input coverage. Stateful protocols (SMB, FTP, HTTP/2) require multi-message sessions to unlock deep paths. ZeroBuilder integrates RL-guided fuzzing and learned state machines to push beyond default OSS-Fuzz for these targets. Even partial success (deeper state coverage or more unique paths) provides measurable improvement. |
+| **Kernel race condition discovery (Primary Milestone)** | **Detect previously unknown dynamic race conditions in Linux kernel 6.x** — Public bugs in 6.x kernels show many latent races remain. By using happens-before graphs, RL thread scheduling, and dynamic modeling, ZeroBuilder attempts to surface races not reported in public CVE or mailing lists. Even one such race — properly validated — would be a notable result. |
+
+
+## 🚀 Stretch Goals / Functions (TBD)
+
+| Target Area                      | Potential Goal |
+|----------------------------------|----------------|
+| Exploit synthesis                | Generate PoCs bypassing ASLR, stack canaries — using hybrid SMT + LLM guidance. |
+| Patch synthesis                  | Produce patch candidates validated by CI/CD regression testing. |
+| End-to-end pipeline automation   | Provide a 1-click install public repo with full test suite. |
+| Learning feedback loops          | Enable adaptive ML retraining from bug discovery drift. |
 
 ---
 
