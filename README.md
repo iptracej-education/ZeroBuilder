@@ -2,7 +2,7 @@
 **June 2025 – June 2027**  
 _Solo developer project — LLM-assisted — goal to surpass DARPA CGC and Meta CaRE 2.0_
 
-While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — ZeroBuilder aims to demonstrate that, by leveraging modern LLM agents (Grok 3, DeepSeekCoder, GPT-4o), a **single developer with discipline and compute** can surpass many 2015–2020 level approaches.
+While DARPA CGC and Meta CaRE 2.0 were multi-institution, funded programs — ZeroBuilder aims to demonstrate that, by leveraging modern LLM agents (Grok 3, DeepSeekCoder, GPT-4o), a **single developer with LLMs and compute** can surpass many 2015–2020 level approaches.
 
 [![Project](https://img.shields.io/badge/Project-ZeroBuilder-blue)](https://github.com/iptracej-education/ZeroBuilder)
 
