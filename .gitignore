@@ -1,0 +1,148 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# UV cache and build artifacts
+.uv/
+__pycache__/
+*.pyc
+uv.lock
+
+# Logs
+prompts/logs/*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# WSL specific
+mnt/
+
+# Editor/IDE files
+*.swp
+*.swo
+*.log
+*.tmp
+
+# Python bytecode
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+/.venv/
+pipenv/
+pipfile.lock
+
+# Poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+.pdm-python
+.pdm-build/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pyright
+.pyrightconfig.json
+
+# ruff
+.ruff_cache/
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# macOS
+*.DS_Store
+
+# Python Script
+main.py
