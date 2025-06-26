@@ -23,10 +23,14 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
   - `V0.1_IMPLEMENTATION_DECISION.md` - Strategic decisions and implementation options
 - **`docs/research/`** - Research findings and analysis
   - `NOVEL_VULNERABILITY_DISCOVERY.md` - Research on unknown vulnerability discovery methods
+  - `UNKNOWN_VULNERABILITY_DISCOVERY_REPORT.md` - Complete unknown discovery implementation ✅ **NEW**
   - `GAT_RESULTS.md` - Original GAT model results and analysis
 - **`docs/infrastructure/`** - Technical infrastructure and setup
   - `INFRASTRUCTURE_PLAN.md` - Cloud infrastructure and deployment planning
   - `LOCAL_TESTING_ARCHITECTURE.md` - Local development and testing setup
+- **`docs/status/`** - Project status and completion reports ✅ **NEW**
+  - `AFL_INTEGRATION_COMPLETE.md` - AFL++ guided fuzzing implementation report
+  - `SESSION_CONTEXT.md` - Project context and continuation protocol
 
 ### **🐍 Python Code (`src/zerobuilder/`)**
 - **`src/zerobuilder/core/`** - Core GAT models and pipeline implementations
@@ -36,6 +40,9 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
 - **`src/zerobuilder/detectors/`** - Domain-specific hybrid detectors
   - `smb_protocol_analyzer.py` - SMB protocol vulnerability detection (17.9x improvement)
   - `kernel_race_detector.py` - Kernel race condition detection (155x improvement)
+  - `smb_aflpp_fuzzer.py` - AFL++ guided SMB protocol fuzzing ✅ **NEW**
+  - `kernel_aflpp_fuzzer.py` - AFL++ guided kernel syscall fuzzing ✅ **NEW**
+  - `rl_guided_fuzzing.py` - RL-enhanced mutation strategies ✅ **NEW**
   - `cpg_parser.py` - Code Property Graph processing
 - **`src/zerobuilder/demos/`** - Example scripts and demonstrations
   - `step1_demo.py` - Basic fuzzing demonstration
@@ -47,9 +54,12 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
   - `llm_reviewers.py` - Multi-LLM review system
   - `vulnerability_patterns.py` - Vulnerability pattern definitions
 
-### **🧪 Test Data & External**
-- **`test_cases/`** - Vulnerability test cases (SMB, kernel)
-- **`sectestcases/`** - Joern CPG data and pre-generated graphs
+### **🧪 Working Directories & Test Data**
+- **`workdirs/`** - Organized working directories
+  - `workdirs/aflpp/` - AFL++ fuzzing environments (SMB, kernel)
+  - `workdirs/tests/` - Test case collections and validation data
+  - `workdirs/models/` - Trained models and checkpoints
+- **`tests/`** - Unit tests and integration testing
 - **`prompts/`** - LLM prompts and task definitions
 - **`docs/`** - Additional technical documentation
 
@@ -66,26 +76,32 @@ uv run python -m zerobuilder.detectors.smb_protocol_analyzer
 
 # Test kernel race detector  
 uv run python -m zerobuilder.detectors.kernel_race_detector
+
+# Test AFL++ integration ✅ NEW
+uv run python tests/test_aflpp_integration.py
 ```
 
 ## 🚀 Project Overview
 
-**ZeroBuilder v0.1 STRATEGIC FOCUS** (June 25, 2025):
+**ZeroBuilder v0.1 STRATEGIC FOCUS** (June 26, 2025):
 ✅ **Hybrid Detection System** - Domain-specific detectors with 17.9x-155x improvement over GAT
 ✅ **SMB Protocol Analyzer** - State machine analysis + protocol-specific vulnerability patterns
 ✅ **Kernel Race Detector** - Temporal analysis + happens-before graph construction
 ✅ **Novel Discovery Research** - 8 advanced methods analyzed, 3 practical approaches identified
+✅ **AFL++ Guided Fuzzing** - Real coverage-guided vulnerability discovery with RL enhancement ✅ **NEW**
 ⏳ **Free Multi-LLM System** - Claude Code + CodeLlama Python + StarCoder 2 + DeepSeekCoder (deploying)
 
 **HYBRID APPROACH BREAKTHROUGH** (v0.1 Achievement): 
 ✅ **SMB Hybrid Detector**: Protocol state analysis + CVE-specific patterns (17.9x better than GAT)
 ✅ **Kernel Race Detector**: Temporal Graph Neural Network + happens-before analysis (155x better than GAT)
+✅ **AFL++ Integration**: Real coverage-guided fuzzing with RL-enhanced mutations ✅ **NEW**
 ✅ **Domain-Specific Focus**: Replaced generic GAT with targeted vulnerability detection
 ✅ **Novel Discovery Methods**: Research completed on unknown vulnerability discovery approaches
 
 **v0.1 Core Capabilities (PROVEN)**:
 - **SMB Protocol Analysis**: Zerologon, EternalBlue, oplock confusion, path traversal detection
 - **Kernel Race Detection**: Use-after-free, TOCTOU, memory mapping, signal races
+- **AFL++ Guided Fuzzing**: Coverage-guided discovery with RL-enhanced mutations ✅ **NEW**
 - **Hybrid Risk Assessment**: Protocol command prioritization with domain expertise
 - **Research Foundation**: 3 practical approaches for novel vulnerability discovery
 
@@ -226,9 +242,10 @@ Contributions of any kind are appreciated:
 
 **📚 Key Documentation:**
 - `RESULTS_SUMMARY.md` - v0.1 performance results and honest assessment  
-- `docs/research/NOVEL_VULNERABILITY_DISCOVERY.md` - Complete research on unknown vulnerability discovery
+- `docs/research/UNKNOWN_VULNERABILITY_DISCOVERY_REPORT.md` - Complete unknown discovery implementation ✅ **NEW**
+- `docs/status/AFL_INTEGRATION_COMPLETE.md` - AFL++ guided fuzzing implementation report ✅ **NEW**
+- `docs/status/SESSION_CONTEXT.md` - Project context and continuation protocol
 - `docs/planning/V0.1_IMPLEMENTATION_DECISION.md` - Strategic decisions and implementation options
-- `docs/planning/PLAN_v0.1_CORE_ONLY.md` - Current focused implementation plan
 
 **Project taglines:**  
 *Built to surpass DARPA CGC & Meta CaRE 2.0 — one step at a time, one bug at a time.*  

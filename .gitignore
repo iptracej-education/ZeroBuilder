@@ -7,10 +7,12 @@ venv/
 .uv/
 __pycache__/
 *.pyc
-uv.lock
+# Keep uv.lock for reproducible builds
+# uv.lock
 
-# Logs
+# Logs and debugging
 prompts/logs/*.log
+*.log
 
 # OS generated files
 .DS_Store
@@ -22,7 +24,6 @@ mnt/
 # Editor/IDE files
 *.swp
 *.swo
-*.log
 *.tmp
 
 # Python bytecode
@@ -73,7 +74,6 @@ coverage.xml
 *.pot
 
 # Django stuff
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -147,6 +147,29 @@ cython_debug/
 # Python Script
 main.py
 
-# Security
+# Working directories and test data
+workdirs/
 sectestcase/
 sectestcases/
+
+# AFL++ fuzzing artifacts
+*_fuzzing_workdir/
+fuzzing_workdir/
+kernel_fuzzing_workdir/
+*.afl
+*.bin
+crashes/
+inputs/
+outputs/
+harness/
+
+# Model files and training artifacts
+*.pth
+*.model
+*.checkpoint
+tensorboard_logs/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
