@@ -1,4 +1,37 @@
-# Cloud-Based Vulnerability Discovery Pipeline Plan ($10,000 Budget)
+# 🗺️ ZeroBuilder Implementation Plan & Progress Tracker
+
+**Project Timeline**: June 18, 2025 - June 18, 2027 (24 months)  
+**Budget**: $10,000 USD  
+**Current Status**: **Step 1 REALIGNING** (June 25, 2025) 🔄
+
+## 🚀 **MAJOR BREAKTHROUGH: June 23, 2025**
+
+**v0.1 RELEASE FOCUS**: Core vulnerability discovery system with free Multi-LLM architecture
+
+✅ **Step 0 COMPLETE**: GAT vulnerability detection (95.83% accuracy) + Free Multi-LLM foundation  
+🔄 **Step 1 REALIGNING**: From general AFL++ → SMB/HTTP stateful protocol fuzzing
+
+## 🔄 **STRATEGIC REALIGNMENT: June 25, 2025**
+
+**CRITICAL INSIGHT**: We completed general fuzzing foundation but need to **refocus on strategic objectives**:
+
+❌ **What We Built**: General AFL++ buffer overflow testing (libpng, SQLite)  
+✅ **What We Need**: SMB/HTTP stateful protocol fuzzing + Linux kernel race detection  
+🎯 **Action**: Realigning Step 1-2 to match Key Technical Objectives:
+
+### **Primary Milestone 1: SMB/HTTP Stateful Protocol Fuzzing**
+- **Goal**: Surpass OSS-Fuzz coverage for stateful protocols requiring multi-message sessions
+- **Current**: General single-input fuzzing (libpng, SQLite)
+- **Required**: SMB session management, HTTP/2 stream multiplexing
+- **Gap**: Need protocol state machine learning and stateful test case generation
+
+### **Primary Milestone 2: Linux Kernel Race Condition Discovery**  
+- **Goal**: Detect previously unknown dynamic race conditions in Linux kernel 6.x
+- **Current**: User-space memory error detection
+- **Required**: Kernel syscall race modeling, happens-before graphs
+- **Gap**: Need kernel tracing integration and race detection algorithms
+
+## Original Project Plan ($10,000 Budget)
 
 This plan outlines a 13-step whitebox vulnerability discovery pipeline for a solo developer working 40 hours/week from **June 18, 2025, 02:31 PM EDT, to June 18, 2027**, using a cloud service model with a $10,000 USD budget. It leverages a 1x NVIDIA A100 40GB instance (Vast.ai, ~$0.20/hour) for ML-intensive steps (0, 4–7) and AWS EKS for compute-heavy steps (9, 12, 13), incorporating the critique to front-load the ML stack (PyTorch, PyG, Stable Baselines, Featuretools, XGBoost) with a “hello world” GAT pipeline and a multi-agent LLM loop (Grok 3, DeepSeekCoder). The plan achieves Steps 0–7 fully and partial Steps 8–13, surpassing DARPA CGC and Meta CaRE 2.0 in scope within budget constraints. A wrap-up ensures closure with testing and deployment.
 

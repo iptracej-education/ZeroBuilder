@@ -1,9 +1,26 @@
 [project]
 name = "zerobuilder"
 version = "0.1.0"
-description = "A collection of LLM Knowledge Engineering Patterns"
+description = "Modern vulnerability discovery pipeline with hybrid detection capabilities"
 readme = "README.md"
 requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Kiyoshi Watanabe", email = "kiyoshi@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers", 
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["vulnerability", "security", "fuzzing", "machine-learning", "graph-neural-networks"]
 
 dependencies = [
     "featuretools==1.31",
@@ -16,8 +33,15 @@ dependencies = [
     "torch-spline-conv>=1.2.2",
     "torchaudio>=2.3.0",
     "torchvision>=0.18.0",
-    "xgboost==2.1",
-    "anthropic"  # For Claude integration
+    "xgboost==2.1", # For Claude integration
+    "anthropic",
+    "torch-geometric>=2.6.1",
+    "gymnasium>=0.29.1",
+    "transformers>=4.21.0",
+    "numpy>=2.3.0",
+    "scikit-learn>=1.7.0",
+    "tensorboard>=2.19.0",
+    "optuna>=4.4.0",
 ]
 
 [[tool.uv.index]]
