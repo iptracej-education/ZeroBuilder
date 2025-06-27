@@ -60,13 +60,21 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
 
 ### **🔧 Deployment & Validation**
 - **`deployment/`** - Production deployment scripts
-  - `validation_runner.py` - Gemini Primary validation system ✅ **NEW**
+  - `validation_runner.py` - Hybrid validation with Multi-LLM fallback ✅ **NEW**
+- **`docs/architecture/`** - System architecture diagrams ✅ **NEW**
+  - `HYBRID_SYSTEM_ARCHITECTURE.md` - Complete architecture documentation
+  - `hybrid_architecture.png` - Main system diagram
+  - `smart_routing_flow.png` - Decision flow diagram
+  - `cost_distribution.png` - Cost analysis diagram
+  - `deployment_architecture.png` - Infrastructure diagram
 - **`workdirs/`** - Organized working directories
   - `workdirs/aflpp/` - AFL++ fuzzing environments (SMB, kernel)
   - `workdirs/tests/` - Test case collections and validation data
   - `workdirs/models/` - Trained models and checkpoints
 - **`tests/`** - Unit tests and integration testing
 - **`prompts/`** - LLM prompts and task definitions
+- **`tools/`** - Development and maintenance tools
+  - `create_architecture_diagram.py` - Generate system architecture diagrams ✅ **NEW**
 
 ### **⚡ Quick Start**
 ```bash
