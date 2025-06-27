@@ -21,9 +21,13 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
   - `PLAN_COMPREHENSIVE.md` - Full 24-month project vision and roadmap
   - `PLAN_v0.1_CORE_ONLY.md` - Current v0.1 focused implementation plan  
   - `V0.1_IMPLEMENTATION_DECISION.md` - Strategic decisions and implementation options
+  - `GEMINI_INTEGRATION_STRATEGY.md` - Gemini capability assessment and cost optimization ✅ **NEW**
+  - `AI_COMMUNICATION_CLARIFICATION.md` - Multi-LLM communication protocols ✅ **NEW**
 - **`docs/research/`** - Research findings and analysis
   - `NOVEL_VULNERABILITY_DISCOVERY.md` - Research on unknown vulnerability discovery methods
   - `UNKNOWN_VULNERABILITY_DISCOVERY_REPORT.md` - Complete unknown discovery implementation ✅ **NEW**
+  - `GEMINI_LOCAL_INTEGRATION_ANALYSIS.md` - Gemini cost-benefit analysis ✅ **NEW**
+  - `GEMINI_DISCUSSION_ANALYSIS.md` - Gemini capability research ✅ **NEW**
   - `GAT_RESULTS.md` - Original GAT model results and analysis
 - **`docs/infrastructure/`** - Technical infrastructure and setup
   - `INFRASTRUCTURE_PLAN.md` - Cloud infrastructure and deployment planning
@@ -54,14 +58,15 @@ ZeroBuilder v0.1 demonstrates significant improvement by pivoting from generic G
   - `llm_reviewers.py` - Multi-LLM review system
   - `vulnerability_patterns.py` - Vulnerability pattern definitions
 
-### **🧪 Working Directories & Test Data**
+### **🔧 Deployment & Validation**
+- **`deployment/`** - Production deployment scripts
+  - `validation_runner.py` - Gemini Primary validation system ✅ **NEW**
 - **`workdirs/`** - Organized working directories
   - `workdirs/aflpp/` - AFL++ fuzzing environments (SMB, kernel)
   - `workdirs/tests/` - Test case collections and validation data
   - `workdirs/models/` - Trained models and checkpoints
 - **`tests/`** - Unit tests and integration testing
 - **`prompts/`** - LLM prompts and task definitions
-- **`docs/`** - Additional technical documentation
 
 ### **⚡ Quick Start**
 ```bash
@@ -79,6 +84,9 @@ uv run python -m zerobuilder.detectors.kernel_race_detector
 
 # Test AFL++ integration ✅ NEW
 uv run python tests/test_aflpp_integration.py
+
+# Run Hybrid validation with Multi-LLM fallback ✅ NEW  
+uv run python deployment/validation_runner.py
 ```
 
 ## 🚀 Project Overview
@@ -89,7 +97,7 @@ uv run python tests/test_aflpp_integration.py
 ✅ **Kernel Race Detector** - Temporal analysis + happens-before graph construction
 ✅ **Novel Discovery Research** - 8 advanced methods analyzed, 3 practical approaches identified
 ✅ **AFL++ Guided Fuzzing** - Real coverage-guided vulnerability discovery with RL enhancement ✅ **NEW**
-⏳ **Free Multi-LLM System** - Claude Code + CodeLlama Python + StarCoder 2 + DeepSeekCoder (deploying)
+✅ **Hybrid Multi-LLM Fallback** - Smart routing: Gemini primary + Multi-LLM fallback (65-75% cost reduction) ✅ **NEW**
 
 **HYBRID APPROACH BREAKTHROUGH** (v0.1 Achievement): 
 ✅ **SMB Hybrid Detector**: Protocol state analysis + CVE-specific patterns (17.9x better than GAT)
@@ -120,11 +128,11 @@ uv run python tests/test_aflpp_integration.py
 - **AWS EKS**: 4-6 nodes ($160-240/month)
 - **Storage**: 2TB ($40/month)
 
-**LLM Agent Architecture** (v0.1 - Free Models):
-- **Claude Code**: Primary development & orchestration (40% weight)
-- **CodeLlama Python**: Python code analysis & review (25% weight)  
-- **StarCoder 2**: Security vulnerability detection (25% weight)
-- **DeepSeekCoder**: Pattern recognition & matching (10% weight)
+**LLM Agent Architecture** (v0.1 - Hybrid Fallback):
+- **Smart Routing**: Confidence-based validation path selection ✅ **NEW**
+- **Gemini Primary**: High-confidence patterns (85% of cases)
+- **Multi-LLM Fallback**: Uncertain/critical patterns (15% of cases)
+- **Cost Optimization**: $145-195 saved (65-75% vs baseline Multi-LLM)
 
 
 ## 🎯 Objective
@@ -244,6 +252,9 @@ Contributions of any kind are appreciated:
 - `RESULTS_SUMMARY.md` - v0.1 performance results and honest assessment  
 - `docs/research/UNKNOWN_VULNERABILITY_DISCOVERY_REPORT.md` - Complete unknown discovery implementation ✅ **NEW**
 - `docs/status/AFL_INTEGRATION_COMPLETE.md` - AFL++ guided fuzzing implementation report ✅ **NEW**
+- `docs/planning/GEMINI_INTEGRATION_STRATEGY.md` - Gemini cost optimization strategy ✅ **NEW**
+- `docs/status/HYBRID_MULTI_LLM_FALLBACK_COMPLETE.md` - Hybrid fallback implementation ✅ **NEW**
+- `deployment/validation_runner.py` - Hybrid validation with Multi-LLM fallback ✅ **NEW**
 - `docs/status/SESSION_CONTEXT.md` - Project context and continuation protocol
 - `docs/planning/V0.1_IMPLEMENTATION_DECISION.md` - Strategic decisions and implementation options
 
