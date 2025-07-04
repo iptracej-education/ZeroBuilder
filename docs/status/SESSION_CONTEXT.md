@@ -51,7 +51,7 @@
 - **`src/zerobuilder/utils/llm_reviewers.py`**: Multi-LLM service (needs real API integration)
 
 ### **Current Tasks:**
-- **`prompts/tasks/TODO_2025-06-26.md`**: Today's detailed Multi-LLM deployment plan
+- **`worklog/tasks/TODO_2025-06-26.md`**: Today's detailed Multi-LLM deployment plan
 
 ## 🧠 **MULTI-LLM ARCHITECTURE**
 
