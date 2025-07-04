@@ -42,7 +42,9 @@ dependencies = [
     "scikit-learn>=1.7.0",
     "tensorboard>=2.19.0",
     "optuna>=4.4.0",
-    "diagrams>=0.24.0",  # For architecture diagram generation
+    "diagrams>=0.24.0", # For architecture diagram generation
+    "accelerate>=1.8.1",
+    "bitsandbytes>=0.46.1",
 ]
 
 [[tool.uv.index]]

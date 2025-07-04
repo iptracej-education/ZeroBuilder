@@ -14,7 +14,7 @@ def test_enhanced_smb_detector():
     
     # Load test cases
     try:
-        with open('test_cases/smb_new_testcases.c', 'r') as f:
+        with open('workdirs/tests/test_cases/smb_new_testcases.c', 'r') as f:
             test_content = f.read()
         print(f'✅ Loaded 13 real CVE test cases')
     except Exception as e:

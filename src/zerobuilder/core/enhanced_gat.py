@@ -103,7 +103,7 @@ class EnhancedVulnerabilityGAT(torch.nn.Module):
         }
 
 class VulnerabilityAnalyzer:
-    \"\"\"Analyze and interpret GAT predictions with vulnerability context\"\"\"
+    """Analyze and interpret GAT predictions with vulnerability context"""
     
     def __init__(self, model, vuln_db):
         self.model = model
@@ -111,7 +111,7 @@ class VulnerabilityAnalyzer:
         self.vuln_types = list(VulnerabilityType)
         
     def analyze_prediction(self, data: Data, prediction: Dict) -> Dict:
-        \"\"\"Analyze model prediction with vulnerability context\"\"\"
+        """Analyze model prediction with vulnerability context"""
         device = next(self.model.parameters()).device
         data = data.to(device)
         
@@ -147,7 +147,7 @@ class VulnerabilityAnalyzer:
         return analysis
     
     def _get_top_vulnerability_types(self, type_probs: torch.Tensor, top_k: int = 3) -> List[Dict]:
-        \"\"\"Get top K vulnerability types with probabilities\"\"\"
+        """Get top K vulnerability types with probabilities"""
         probs = F.softmax(type_probs, dim=1).squeeze()
         top_indices = torch.topk(probs, min(top_k, len(probs))).indices
         
@@ -162,22 +162,22 @@ class VulnerabilityAnalyzer:
         return top_types
     
     def _assess_risk_level(self, vuln_confidence: float, type_confidence: float) -> str:
-        \"\"\"Assess overall risk level\"\"\"
+        """Assess overall risk level"""
         combined_confidence = (vuln_confidence + type_confidence) / 2
         
         if combined_confidence > 0.9:
-            return \"CRITICAL\"
+            return "CRITICAL"
         elif combined_confidence > 0.7:
-            return \"HIGH\"
+            return "HIGH"
         elif combined_confidence > 0.5:
-            return \"MEDIUM\"
+            return "MEDIUM"
         else:
-            return \"LOW\"
+            return "LOW"
 
 def train_enhanced_gat_model(dataset: List[Data], epochs: int = 15, learning_rate: float = 0.001):
-    \"\"\"Train enhanced GAT model with multiple objectives\"\"\"
+    """Train enhanced GAT model with multiple objectives"""
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logger.info(f\"Training on device: {device}\")
+    logger.info(f"Training on device: {device}")
     
     # Split dataset
     train_size = int(0.8 * len(dataset))
@@ -203,7 +203,7 @@ def train_enhanced_gat_model(dataset: List[Data], epochs: int = 15, learning_rat
     type_criterion = torch.nn.CrossEntropyLoss()
     confidence_criterion = torch.nn.MSELoss()
     
-    logger.info(f\"Training enhanced GAT: {len(train_data)} train, {len(val_data)} val, {len(test_data)} test\")
+    logger.info(f"Training enhanced GAT: {len(train_data)} train, {len(val_data)} val, {len(test_data)} test")
     
     best_val_acc = 0.0
     best_model_state = None
@@ -274,15 +274,15 @@ def train_enhanced_gat_model(dataset: List[Data], epochs: int = 15, learning_rat
             best_val_acc = val_acc
             best_model_state = model.state_dict().copy()
         
-        logger.info(f\"Epoch {epoch+1}/{epochs}: \"
-                   f\"Train Loss: {train_loss/len(train_loader):.4f}, Train Acc: {train_acc:.4f}, \"
-                   f\"Val Loss: {val_loss/len(val_loader):.4f}, Val Acc: {val_acc:.4f}, \"
-                   f\"LR: {optimizer.param_groups[0]['lr']:.6f}\")
+        logger.info(f"Epoch {epoch+1}/{epochs}: "
+                   f"Train Loss: {train_loss/len(train_loader):.4f}, Train Acc: {train_acc:.4f}, "
+                   f"Val Loss: {val_loss/len(val_loader):.4f}, Val Acc: {val_acc:.4f}, "
+                   f"LR: {optimizer.param_groups[0]['lr']:.6f}")
     
     # Load best model
     if best_model_state:
         model.load_state_dict(best_model_state)
-        logger.info(f\"Loaded best model with validation accuracy: {best_val_acc:.4f}\")
+        logger.info(f"Loaded best model with validation accuracy: {best_val_acc:.4f}")
     
     # Test evaluation
     test_correct = 0
@@ -298,21 +298,21 @@ def train_enhanced_gat_model(dataset: List[Data], epochs: int = 15, learning_rat
             test_total += batch.y.size(0)
     
     test_acc = test_correct / test_total
-    logger.info(f\"Final Test Accuracy: {test_acc:.4f}\")
+    logger.info(f"Final Test Accuracy: {test_acc:.4f}")
     
     return model
 
 def analyze_enhanced_vulnerabilities(model, dataset: List[Data], num_samples: int = 20):
-    \"\"\"Analyze vulnerabilities with enhanced GAT model\"\"\"
+    """Analyze vulnerabilities with enhanced GAT model"""
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.eval()
     
     analyzer = VulnerabilityAnalyzer(model, VULNERABILITY_DB)
     
-    logger.info(\"\
-\" + \"=\"*80)
-    logger.info(\"ENHANCED VULNERABILITY ANALYSIS RESULTS\")
-    logger.info(\"=\"*80)
+    logger.info("\
+" + "="*80)
+    logger.info("ENHANCED VULNERABILITY ANALYSIS RESULTS")
+    logger.info("="*80)
     
     correct_predictions = 0
     total_predictions = 0
@@ -322,45 +322,45 @@ def analyze_enhanced_vulnerabilities(model, dataset: List[Data], num_samples: in
         
         # Check if prediction matches true label
         if analysis['true_label'] is not None:
-            is_correct = (analysis['vulnerable'] and analysis['true_label'] == 1) or \\
+            is_correct = (analysis['vulnerable'] and analysis['true_label'] == 1) or \
                         (not analysis['vulnerable'] and analysis['true_label'] == 0)
             correct_predictions += is_correct
             total_predictions += 1
             
-            status = \"✅ CORRECT\" if is_correct else \"❌ INCORRECT\"
+            status = "✅ CORRECT" if is_correct else "❌ INCORRECT"
         else:
-            status = \"? UNKNOWN\"
+            status = "? UNKNOWN"
         
-        logger.info(f\"\
-Sample {i+1}:\")
-        logger.info(f\"  Prediction: {'VULNERABLE' if analysis['vulnerable'] else 'BENIGN'} \"
-                   f\"(confidence: {analysis['vulnerability_confidence']:.3f}) {status}\")
-        logger.info(f\"  Type: {analysis['vulnerability_type']} \"
-                   f\"(confidence: {analysis['type_confidence']:.3f})\")
-        logger.info(f\"  Risk Level: {analysis['risk_assessment']}\")
-        logger.info(f\"  Estimated Confidence: {analysis['estimated_confidence']:.3f}\")
+        logger.info(f"\
+Sample {i+1}:")
+        logger.info(f"  Prediction: {'VULNERABLE' if analysis['vulnerable'] else 'BENIGN'} "
+                   f"(confidence: {analysis['vulnerability_confidence']:.3f}) {status}")
+        logger.info(f"  Type: {analysis['vulnerability_type']} "
+                   f"(confidence: {analysis['type_confidence']:.3f})")
+        logger.info(f"  Risk Level: {analysis['risk_assessment']}")
+        logger.info(f"  Estimated Confidence: {analysis['estimated_confidence']:.3f}")
         
         if analysis['true_label'] is not None:
-            logger.info(f\"  True Label: {'VULNERABLE' if analysis['true_label'] == 1 else 'BENIGN'}\")
+            logger.info(f"  True Label: {'VULNERABLE' if analysis['true_label'] == 1 else 'BENIGN'}")
             
         # Show top vulnerability types
         if len(analysis['top_vulnerability_types']) > 1:
-            logger.info(f\"  Top Types: {', '.join([f\"{t['type']}({t['probability']:.2f})\" for t in analysis['top_vulnerability_types'][:3]])}\")
+            logger.info(f"  Top Types: {', '.join([f\"{t['type']}({t['probability']:.2f})\" for t in analysis['top_vulnerability_types'][:3]])}")
     
     if total_predictions > 0:
         accuracy = correct_predictions / total_predictions
-        logger.info(f\"\
-\" + \"=\"*80)
-        logger.info(f\"OVERALL ACCURACY: {accuracy:.2%} ({correct_predictions}/{total_predictions})\")
-        logger.info(\"=\"*80)
+        logger.info(f"\
+" + "="*80)
+        logger.info(f"OVERALL ACCURACY: {accuracy:.2%} ({correct_predictions}/{total_predictions})")
+        logger.info("="*80)
     
     return correct_predictions, total_predictions
 
 def main():
-    \"\"\"Enhanced GAT pipeline with real vulnerability pattern detection\"\"\"
-    logger.info(\"🚀 Starting Enhanced ZeroBuilder GAT Pipeline\")
-    logger.info(f\"PyTorch: {torch.__version__}, Device: {'GPU' if torch.cuda.is_available() else 'CPU'}\")
-    logger.info(f\"Vulnerability Database: {len(VULNERABILITY_DB.vulnerable_patterns)} patterns loaded\")
+    """Enhanced GAT pipeline with real vulnerability pattern detection"""
+    logger.info("🚀 Starting Enhanced ZeroBuilder GAT Pipeline")
+    logger.info(f"PyTorch: {torch.__version__}, Device: {'GPU' if torch.cuda.is_available() else 'CPU'}")
+    logger.info(f"Vulnerability Database: {len(VULNERABILITY_DB.vulnerable_patterns)} patterns loaded")
     
     try:
         # Load and process CPG data with enhanced features
@@ -368,10 +368,10 @@ def main():
         dataset = processor.create_dataset(limit=50)  # Increased to 50 samples
         
         if len(dataset) == 0:
-            logger.error(\"No valid CPG data found. Check sectestcases directory.\")
+            logger.error("No valid CPG data found. Check sectestcases directory.")
             return
         
-        logger.info(f\"Dataset created: {len(dataset)} samples\")
+        logger.info(f"Dataset created: {len(dataset)} samples")
         
         # Train enhanced GAT model
         model = train_enhanced_gat_model(dataset, epochs=10, learning_rate=0.001)
@@ -391,15 +391,15 @@ def main():
             'vulnerability_patterns': len(VULNERABILITY_DB.vulnerable_patterns)
         }, 'enhanced_vulnerability_gat_model.pth')
         
-        logger.info(\"✅ Enhanced GAT model saved to enhanced_vulnerability_gat_model.pth\")
-        logger.info(f\"🎯 Enhanced ZeroBuilder GAT Pipeline completed! Accuracy: {correct/total:.2%}\")
-        logger.info(\"🔄 Ready for Step 1 integration: RL-guided fuzzing with real vulnerability detection\")
+        logger.info("✅ Enhanced GAT model saved to enhanced_vulnerability_gat_model.pth")
+        logger.info(f"🎯 Enhanced ZeroBuilder GAT Pipeline completed! Accuracy: {correct/total:.2%}")
+        logger.info("🔄 Ready for Step 1 integration: RL-guided fuzzing with real vulnerability detection")
         
     except Exception as e:
-        logger.error(f\"❌ Enhanced pipeline failed: {e}\")
+        logger.error(f"❌ Enhanced pipeline failed: {e}")
         import traceback
         traceback.print_exc()
         raise
 
-if __name__ == \"__main__\":
+if __name__ == "__main__":
     main()
